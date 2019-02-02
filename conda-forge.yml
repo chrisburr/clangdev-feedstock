@@ -10,3 +10,6 @@ travis:
 
 provider:
   osx: circle
+
+github:
+  repo_name: clangdev-feedstock
