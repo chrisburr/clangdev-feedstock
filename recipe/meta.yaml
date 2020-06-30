@@ -1,7 +1,11 @@
 {% set version = "5.0.0" %}
 {% set sha256 = "019f23c2192df793ac746595e94a403908749f8e0c484b403476d2611dd20970" %}
 
-{% set build_number = "1008" %}
+{% set build_number = os.environ.get("ROOT_CONDA_BUILD_NUMBER", "1008") %}
+
+{%- if "ROOT_CONDA_GIT_REV" in os.environ %}
+  {% set clang_variant = "root_" + os.environ["ROOT_CONDA_GIT_REV"] %}
+{%- endif %}
 
 {% if not clang_variant %}
 {% set clang_variant = "default" %}
@@ -27,8 +31,8 @@ source:
   git_rev: fde5aa88ea02dfcd9fe20c346ece1c2b6aabfe6d
   folder: root-source
 {% elif clang_variant.startswith("root") %}
-  git_url: https://github.com/root-project/root.git
-  git_rev: c100d61bd56d05058843da021cf1f740166aad38
+  git_url: {{ os.environ.get("ROOT_CONDA_GIT_URL", "https://github.com/root-project/root.git") }}
+  git_rev: {{ os.environ.get("ROOT_CONDA_GIT_REV", "c100d61bd56d05058843da021cf1f740166aad38") }}
   folder: root-source
 {% endif %}
 
