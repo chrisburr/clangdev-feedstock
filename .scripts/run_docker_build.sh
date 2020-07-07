@@ -58,9 +58,9 @@ rm -f "$DONE_CANARY"
 
 # Allow people to specify extra default arguments to `docker run` (e.g. `--rm`)
 DOCKER_RUN_ARGS="${CONDA_FORGE_DOCKER_RUN_ARGS}"
-if [ -z "${CI}" ]; then
-    DOCKER_RUN_ARGS="-it ${DOCKER_RUN_ARGS}"
-fi
+# if [ -z "${CI}" ]; then
+#     DOCKER_RUN_ARGS="-it ${DOCKER_RUN_ARGS}"
+# fi
 
 export UPLOAD_PACKAGES="${UPLOAD_PACKAGES:-True}"
 docker run ${DOCKER_RUN_ARGS} \
