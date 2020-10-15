@@ -56,7 +56,7 @@ outputs:
         - m2w64-xz  # [win]
         # "compiling .pyc files" fails without this
         - python >3
-        - llvmdev =={{ version }}    # [build_platform != target_platform]
+        - llvmdev =={{ version }}    # [linux and (build_platform != target_platform)]
         - make
       host:
         - llvmdev =={{ version }}
