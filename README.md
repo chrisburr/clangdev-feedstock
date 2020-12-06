@@ -5,11 +5,9 @@ Home: http://llvm.org/
 
 Package license: NCSA
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/clangdev-feedstock/blob/master/LICENSE.txt)
 
 Summary: Development headers and libraries for Clang
-
-
 
 Current build status
 ====================
